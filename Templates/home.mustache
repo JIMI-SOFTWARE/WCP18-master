@@ -1,0 +1,189 @@
+<!-- <!DOCTYPE html> -->
+<html>
+<head>
+  <title>WCP18 Dancing Fountain</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../CSS/style.css">
+  <link rel="stylesheet" type="text/css" href="../CSS/home.css">
+  <link rel="stylesheet" type="text/css" href="../CSS/new_sequence.css">
+  <link rel="stylesheet" type="text/css" href="../CSS/sequence_preview.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script type="text/javascript" src="../Javascript/sequence_preview.js"></script>
+  <script type="text/javascript" src="../Javascript/home.js"></script>
+	<script type="text/javascript" src="../Javascript/new_sequence.js"></script>
+
+  <script type="text/javascript" src="../external_libraries/sweetalert-master/lib/sweet-alert.js"></script>
+
+   <link rel="stylesheet" type="text/css" href="../external_libraries/sweetalert-master/lib/sweet-alert.css">
+
+  	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+
+</head>
+
+<body>
+
+	<div id="header" class="header_text">
+		Dancing Fountain Prototype
+	</div>
+
+	<div id="content_welcome">
+		<div id="sequence_select">
+
+			<div class="sub_header" id="sequence_select_text">Create your own sequence...
+			</div>
+
+
+			<div class="big_button">
+				<a class="button_icon" href="/New_Sequence">
+					<img src="../Images/plus.svg" class="icon_big">
+					<div class="icon_text">New Sequence</div>
+				</a>	
+			</div>
+
+
+			<div class="sub_header" id="sequence_select_text">Or select one of these!
+			</div>
+
+			<div id="sequence_box">
+				{{#sequence_option}}
+					<div id="{{sequence_id}}" class="sequence">{{sequence_name}}</div>
+				{{/sequence_option}}
+
+			</div>
+
+			<div id="sequence_buttons">
+
+				<div class="button_row">
+					<div class="button_icon" id="preview_home">
+						<img src="../Images/info.svg" class="">
+						<div class="icon_text">Preview</div>
+					</div>
+					<div class="button_icon" id="add_to_queue">
+						<img src="../Images/play.svg" class="icon_big">
+						<div class="icon_text">Add to Queue</div>
+					</div>
+					<div class="button_icon" id="loop">
+						<img src="../Images/loop.svg" class="icon_big">
+						<div class="icon_text">Loop</div>
+					</div>
+				</div>
+
+
+
+				<div class="button_row">
+
+
+					<div class="button_icon" id="clear_queue">
+						<img src="../Images/close-circle.svg" class="icon_big">
+						<div class="icon_text">Clear Queue</div>
+					</div>
+				</div>
+	
+
+
+				<br><br>
+				
+
+
+
+
+
+			</div>
+
+
+		</div>
+
+		<div id="queue">
+
+
+
+				<a class="button_icon" target="_blank" id="live_feed">
+					<img src="../Images/view.svg" class="icon_big">
+					<div class="icon_text">Live Feed</div>
+				</a>
+
+			<div class="sub_header" id="queue_text">
+				<span class="inline_text">Queue</span>
+				<a class="inline_button" href="/"><img class="inline_img" src="../Images/refresh.svg"></a>
+			</div>
+
+			<div id="queue_box">
+				
+
+<!-- 				<div class="queue_inner_text body">Sequence
+				</div>
+				<div class="queue_inner_text body">Time remaining
+				</div> -->
+
+				{{#queue}}
+					<div id="{{sequence_id}}" class="queue_sequence">
+						<span class="inline_text">{{sequence_name}}
+						</span>
+						{{#loop}}
+							<span class="inline_icon" style="display:none" id="cancel_loop">
+								<img class="inline_img active" src="../Images/loop.svg">
+							</span>
+						{{/loop}}
+							<span class="inline_button" style="display:none" id="skip">
+								<img class="inline_img active" src="../Images/close-circle.svg">
+							</span>
+					</div>
+				{{/queue}}
+				{{^queue}}
+					<div class="empty_text">Nothing In Queue</div>
+				{{/queue}}
+
+			</div>
+
+		</div>
+
+
+	</div>
+	<div class="preview_content" style="display:none" id="preview_home_section">
+		<div class="top_left">Frame <span id="frame_counter"></span></div>
+		<div class="stream_preview" id="valve_1">
+			<div class="preview_overlay" style="display:none"></div>
+		</div>
+		<div class="stream_preview" id="valve_2">
+			<div class="preview_overlay" style="display:none"></div>
+		</div>
+		<div class="stream_preview" id="valve_3">
+			<div class="preview_overlay" style="display:none"></div>
+		</div>
+		<div class="stream_preview" id="valve_4">
+			<div class="preview_overlay" style="display:none"></div>
+		</div>
+		<div class="stream_preview" id="valve_5">
+			<div class="preview_overlay" style="display:none"></div>
+		</div>
+		<div class="stream_preview" id="valve_6">
+			<div class="preview_overlay" style="display:none"></div>
+		</div>
+		<div class="stream_preview" id="valve_7">
+			<div class="preview_overlay" style="display:none"></div>
+		</div>
+		<div class="stream_preview" id="valve_8">
+			<div class="preview_overlay" style="display:none"></div>
+		</div>
+	</div>
+
+		
+
+	<div class="footer">
+		<a id="school_logo" href="/Setup">
+			<img id="BU_logo" class="image" src="../Images/last_hackbu.png"/>
+		</a>
+
+		<div id="team_info" class="sub_header">
+			WCP18<br>Isaac Patka<br>
+			Priscilla Li<br>Vivian Mo<br>
+			Mehdi Lamkies
+		</div>
+
+	</div>
+
+</body>
+
+</html>

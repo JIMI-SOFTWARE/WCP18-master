@@ -1,0 +1,61 @@
+#!/usr/bin/env php
+<?php
+
+require 'vendor/autoload.php';
+
+use PhpGpio\Gpio;
+
+
+//maybe some verification that there are 2 arguments and the first is an array
+
+$pin_open = unserialize($argv[1]);
+$pin_open_count = count($pin_open);
+
+$pin_close = unserialize($argv[2]);
+$pin_close_count = count($pin_close);
+
+$sleep_time = (int)stripslashes($argv[3]);
+
+echo "Setting up pins\n";
+$gpio = new GPIO();
+for ($i = 1; $i <= $pin_open_count; $i++) {
+
+	$gpio->setup($pin_open[$i-1], "out");
+
+}
+
+for ($i = 1; $i <= $pin_close_count; $i++) {
+
+	$gpio->setup($pin_close[$i-1], "out");
+
+}
+
+
+echo "Turning on pins\n";
+
+for ($i = 1; $i <= $pin_open_count; $i++) {
+
+	$gpio->output($pin_open[$i-1], 1);
+
+}
+
+echo "Turning off pins\n";
+
+for ($i = 1; $i <= $pin_close_count; $i++) {
+
+	$gpio->output($pin_close[$i-1], 0);
+
+}
+
+echo "Sleeping!\n";
+usleep($sleep_time * 1000);
+
+// echo "Turning off pin 17\n";
+// for ($i = 1; $i <= $pin_open_count; $i++) {
+
+// 	$gpio->output($pin_open[$i-1], 0);
+
+// }
+
+echo "Unexporting all pins\n";
+//$gpio->unexportAll();

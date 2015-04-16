@@ -1,0 +1,86 @@
+#!/usr/bin/env php
+<?php
+
+# Usage :
+#
+#   $ sudo blinker 17 200000
+#
+# = Blink GPIO #17 pin with 0.2 second delay
+
+require 'vendor/autoload.php';
+
+use PhpGpio\Gpio;
+
+// Am i using php-cli?
+if ('cli' != PHP_SAPI) {
+    echo $msg = "This script must be run using php-cli";
+    throw new \Exception($msg);
+}
+
+// Am I a sudoer or the root user?
+if ('root' !== $_SERVER['USER'] || empty($_SERVER['SUDO_USER'])) {
+    echo $msg = "Please run this script as root, using sudo -t ; please check the README file";
+    throw new \Exception($msg);
+}
+
+// Am I using at least 2 integer arguments ?
+if (
+    (2 >= $argc)
+) {
+    echo $msg = "This script expects at least 2 positive integer arguments: please check the README file";
+    throw new \Exception($msg);
+}
+
+
+$i = 1;
+while ($i <= ($argc-1)) {
+    # code...
+    $pin[i] = (int)$argv[i];
+    $i++;
+}
+
+$sleeper = (int)$argv[$argc];
+
+// $pin_1 = (int)$argv[1];
+// $pin_2 = (int)$argv[2];
+// $sleeper = (int)$argv[3];
+$gpio = new GPIO();
+
+// if(!in_array($pin_1, $gpio->getHackablePins())){
+//     echo $msg = "$pin_1 is not a hackable gpio pin number";
+//     throw new \InvalidArgumentException($msg);
+// }
+
+
+
+$i = 1;
+while ($i <= ($argc-1)) {
+    $gpio->setup($pin[i], "out");
+    $i++;
+}
+
+$i = 1;
+while ($i <= ($argc-1)) {
+    $gpio->output($pin[i], 1);
+    $i++;
+}
+
+usleep($sleeper);
+
+$i = 1;
+while ($i <= ($argc-1)) {
+    $gpio->output($pin[i], 0);
+    $i++;
+}
+
+
+// $gpio->setup($pin_1, "out");
+// $gpio->setup($pin_2, "out");
+// $gpio->output($pin_1, 1);
+// $gpio->output($pin_2, 1);
+// usleep($sleeper);
+// $gpio->output($pin_1, 0);
+// $gpio->output($pin_2, 0);
+
+$gpio->unexportAll();
+

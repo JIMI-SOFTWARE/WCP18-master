@@ -1,0 +1,155 @@
+@import url(http://fonts.googleapis.com/css?family=Nunito:300);
+
+body{
+	background-color: #10222B; 
+	font-family: Futura, sans-serif;
+	font-weight: 100;
+/*	min-width: 850px;
+*/
+}
+
+.header_text{
+	color: white;
+}
+
+.sub_header{
+	color: white;
+
+}
+
+.body{
+	color: #10222B;
+}
+
+
+
+.hackbu_background{
+	color: rgb(98,193,124);
+}
+
+.hackbu_text{
+	color: rgb(0,103,62);
+}
+
+#header{
+	font-size: 48px;
+	text-align: center;
+
+	margin: 20px auto;
+	cursor: default;
+
+}
+
+
+
+
+.footer{
+padding: 30px 30px;
+position: relative;
+
+}
+
+.button{
+	display: inline-block;
+	border: #979797 solid 1px;
+	background-color: rgb(216,216,216);
+	cursor: pointer;
+	border-radius: 3px;
+	
+	margin: 0 3px;
+
+	padding: 10px 10px;
+	text-decoration: none;
+}
+
+.button_icon{
+	cursor: pointer;
+	display: inline-block;
+	margin: 0px 8px;
+}
+
+a.button_icon{
+	text-decoration: none;
+}
+
+.button_row{
+	display: block;
+}
+
+
+
+.icon_big{
+	width: 35px;
+	height: auto;
+}
+
+.icon_small{
+	width: 20px;
+	height: auto;
+}
+
+.button:hover{
+	background-color: rgb(149,171,99);
+	color: white;
+}
+
+#school_logo{
+width: 100px;
+text-align: center;
+position: absolute;
+left: 15px;
+}
+
+#bu_logo{
+	width: 100px;
+	height: auto;
+}
+
+
+
+#team_info{
+	width: 130px;
+	position: absolute;
+	right: 15px;
+
+}
+
+.empty_text{
+	color: gray;
+	text-align: center;
+	padding-top: 15px;
+}
+
+.icon_text{
+	font-size: 12px;
+	color: black;
+}
+
+a.icon_text{
+	text-decoration: none;
+}
+
+.gray_seperator{
+	border: none;
+	background-color: #eee;
+	color: #eee;
+	height: 1px;
+	width: 80%;
+}
+
+.top_right{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	height: auto;
+	width: auto;
+	z-index: 10;
+}
+.top_left{
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	height: auto;
+	width: auto;
+	z-index: 10;
+}
